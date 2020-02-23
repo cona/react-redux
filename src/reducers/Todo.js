@@ -9,8 +9,21 @@ export const todoReducer = (state = initialState, action) => {
       const todo = action.payload.todo;
       // stateを複製して追加
       const newState = Object.assign({}, state);
-      newState.todoList.push(todo);
+      newState.todoList.push({
+        todo,
+        id:action.id,
+        completed: false
+      });
       return newState;
+    case 'TOGGLE_TODO':
+      state.todoList = state.todoList.map((todo)=>{
+        if(todo.id === action.payload.id) {
+          todo.completed = !todo.completed;
+          return todo;
+        }
+        return todo;
+      });
+      return Object.assign({}, state);
     default:
       return state;
   }
