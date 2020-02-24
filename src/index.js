@@ -6,8 +6,10 @@ import * as serviceWorker from './serviceWorker';
 
 import { Provider } from 'react-redux';
 import createStore from './createStore';
+import { getPosts } from './actions/Api'
 
 const store = createStore();
+store.dispatch(getPosts());
 
 ReactDOM.render(
   <Provider store={store}>

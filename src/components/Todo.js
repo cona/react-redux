@@ -6,8 +6,6 @@ export default class Todo extends React.Component {
   };
 
   render() {
-    console.log(this.props);
-
     // StoreのTodoからリストを生成
     const list = this.props.todo.todoList.map((todoObject, index) => <li
       onClick={() => this.props.toggleTodo(index)}
