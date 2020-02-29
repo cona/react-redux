@@ -3,6 +3,9 @@ import './App.css';
 //import Todo from './components/Todo';
 import Todo from './containers/Todo';
 import GetPostList from './containers/Api'
+import Form from './containers/AddPoint'
+import showResults from './showResult';
+
 
 class App extends Component {
   render() {
@@ -11,6 +14,8 @@ class App extends Component {
         <Todo />
         <hr />
         <GetPostList />
+        <hr />
+        <Form onSubmit={showResults}/>
       </div>
     );
   }
